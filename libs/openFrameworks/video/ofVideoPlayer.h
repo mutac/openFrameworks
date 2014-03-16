@@ -30,6 +30,11 @@
 	#define OF_VID_PLAYER_TYPE ofxAndroidVideoPlayer
 #endif
 
+#ifdef OF_VIDEO_PLAYER_DIRECTSHOW
+	#include "ofDirectShowPlayer.h"
+	#define OF_VID_PLAYER_TYPE ofDirectShowPlayer
+#endif
+
 //---------------------------------------------
 class ofVideoPlayer : public ofBaseVideoPlayer,public ofBaseVideoDraws{
 

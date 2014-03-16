@@ -1,5 +1,5 @@
 #include "ofQtUtils.h"
-
+#ifndef _WIN64
 #if defined (TARGET_WIN32) || (defined TARGET_OSX && !defined(MAC_OS_X_VERSION_10_7))
 #include "ofUtils.h"
 #include "ofGraphics.h"
@@ -344,6 +344,8 @@ OSErr SaveSettingsPreference(CFStringRef inKey, UserData inUserData)
 }
 
 //end mac specific stuff
+#endif
+
 #endif
 
 #endif

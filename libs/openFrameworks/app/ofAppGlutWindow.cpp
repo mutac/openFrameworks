@@ -168,11 +168,19 @@ static void fixCloseWindowOnWin32(){
 	// enable drag and drop of files.
 	DragAcceptFiles (handle, TRUE);
 
+#if defined(_WIN64) && defined(_MSC_VER)
+	//store the current message event handler for the window
+	currentWndProc = (WNDPROC)GetWindowLongPtr(handle, GWLP_WNDPROC);
+
+	//tell the window to now use our event handler!
+	SetWindowLongPtr(handle, GWLP_WNDPROC, (long)winProc);
+#else
 	//store the current message event handler for the window
 	currentWndProc = (WNDPROC)GetWindowLongPtr(handle, GWL_WNDPROC);
 
 	//tell the window to now use our event handler!
 	SetWindowLongPtr(handle, GWL_WNDPROC, (long)winProc);
+#endif
 }
 
 #endif

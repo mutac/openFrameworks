@@ -84,8 +84,9 @@ enum ofTargetPlatform{
 #ifdef TARGET_WIN32
 	//this is for TryEnterCriticalSection
 	//http://www.zeroc.com/forums/help-center/351-ice-1-2-tryentercriticalsection-problem.html
+	//also for Poco #see libs\poco\include\Poco\UnWindows.h
 	#ifndef _WIN32_WINNT
-		#define _WIN32_WINNT 0x500
+		#define _WIN32_WINNT 0x501
 	#endif
 	#define WIN32_LEAN_AND_MEAN
 
@@ -297,7 +298,11 @@ typedef TESSindex ofIndexType;
 			#define OF_VIDEO_PLAYER_QTKIT
 		#endif
 	#else
-		#define OF_VIDEO_PLAYER_QUICKTIME
+		#if defined (_WIN64) && defined(_MSC_VER)
+			#define OF_VIDEO_PLAYER_DIRECTSHOW
+		#else
+			#define OF_VIDEO_PLAYER_QUICKTIME
+		#endif
 	#endif
 #endif
 

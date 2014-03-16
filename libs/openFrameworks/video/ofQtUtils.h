@@ -2,6 +2,7 @@
 
 #include "ofConstants.h"
 
+#ifndef _WIN64
 #if defined (TARGET_WIN32) || defined (TARGET_OSX)
 
 
@@ -54,5 +55,7 @@ void            MovieGetStaticFrameRate(Movie inMovie, double *outStaticFrameRat
 #endif
 
 #endif //OS 10.7 guard
+
+#endif
 
 #endif
