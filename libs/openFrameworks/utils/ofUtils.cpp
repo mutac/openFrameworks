@@ -810,7 +810,11 @@ ofTargetPlatform ofGetTargetPlatform(){
     return OF_TARGET_OSX;
 #elif defined(TARGET_WIN32)
     #if (_MSC_VER)
-        return OF_TARGET_WINVS;
+		#if (_WIN64)
+	        return OF_TARGET_WINVS64;
+		#else
+	        return OF_TARGET_WINVS;
+		#endif
     #else
         return OF_TARGET_WINGCC;
     #endif
