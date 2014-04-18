@@ -7,6 +7,10 @@ openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a
 libs/openFrameworksCompiled/lib/*/*
+
+# Temp hack to make development easier, checkin the vs64 libs
+!libs/openFrameworksCompiled/lib/vs64/*
+
 !libs/openFrameworksCompiled/lib/*/.gitkeep
 
 # rule to avoid non-official addons going into git
@@ -62,6 +66,7 @@ xcuserdata
 *.pdb
 *.ilk
 *.aps
+*.user
 ipch/
 
 # Eclipse
